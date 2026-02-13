@@ -18,11 +18,19 @@ class ProductFactory extends Factory
             'Vivo'    => 'Vivo ' . $this->faker->randomElement(['V30', 'X100', 'Y100']),
         };
 
+        $thumbnail_produk = match($kategori){
+            'Iphone' => '1770855199.jpg' ,
+            'Samsung' => '1770855210.jpg' ,
+            'Xiaomi' => '1770855216.jpg' ,
+            'Oppo' => '1770982283.jpg' ,
+            'Vivo' => '1770982304.webp' ,
+        };
+
         return [
             'kategori'    => $kategori,
             'nama_produk' => $nama_produk,
             'harga'       => $this->faker->numberBetween(1000000, 20000000),
-            'thumbnail'   => null,
+            'thumbnail'   => $thumbnail_produk,
             'created_at'  => $this->faker->dateTimeBetween('-6 months', 'now'),
             'updated_at'  => now()
         ];

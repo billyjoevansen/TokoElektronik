@@ -11,29 +11,25 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('12345678')
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('12345678'),
+                'photo' => '1770982207.png'
+            ]
+        );
 
-        Product::create([
-            'kategori' => 'Iphone',
-            'nama_produk' => 'Iphone 13 Pro',
-            'harga' => 12000000
-        ]);
+        User::firstOrCreate(
+            ['email' => 'billsky14@gmail.com'],
+            [
+                'name' => 'Billy',
+                'password' => Hash::make('12345678'),
+                'photo' => '1770982207.png'
+            ]
+        );
 
-        Product::create([
-            'kategori' => 'Samsung',
-            'nama_produk' => 'Samsung X Flip',
-            'harga' => 20000000
-        ]);
-
-        Product::create([
-            'kategori' => 'Xiaomi',
-            'nama_produk' => 'Xiaomi Redmi Note 11 Pro',
-            'harga' => 3200000
-        ]);
+        // Product::truncate();
         Product::factory()->count(10)->create();
     }
 }
