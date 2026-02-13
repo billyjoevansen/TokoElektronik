@@ -134,7 +134,8 @@ class ProductController extends Controller
     public function destroy(Product $produk)
     {
         $produk->delete();
-        return redirect()->route('produk.index');
+        return redirect()->route('produk.index')
+         ->with('success', 'Data berhasil dihapus');
     }
 
     public function exportPdf(Request $request)

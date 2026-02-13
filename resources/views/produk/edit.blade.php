@@ -14,7 +14,7 @@
 </div>
 @endif
 
-<form action="{{ route('produk.update', $produk->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('produk.update', $produk->id) }}" method="POST" id="form-edit" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -42,7 +42,7 @@
         <input type="file" name="thumbnail" class="form-control mt-2">
     </div>
 
-    <button class="btn btn-primary">Update</button>
+    <button type="button" class="btn btn-primary" id="btn-edit">Update</button>
     <a href="{{ route('produk.index') }}" class="btn btn-secondary">Kembali</a>
 </form>
 
